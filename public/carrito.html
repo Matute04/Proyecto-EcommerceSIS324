@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/api.js" defer></script>
+    <script src="js/ui.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1 class="parrafoCarrito">Carrito de Compras</h1>
+    </header>
+
+    <div id="cart-container">
+        <!-- Aquí se mostrarán los productos del carrito -->
+    </div>
+    <button id="create-order" class="btn-order">Crear Pedido</button>
+    <footer>
+        <!-- Pie de página -->
+    </footer>
+
+    <script>
+        // Al cargar la página, llamamos al método de UI para cargar el carrito
+        window.onload = () => {
+            UI.cargarCarrito();
+        };
+
+        // Evento para eliminar productos del carrito
+        document.addEventListener('click', function (e) {
+            if (e.target && e.target.matches('.remove-btn')) {
+                const cartId = e.target.getAttribute('data-cart-id'); // Obtener el id del carrito
+                UI.removeFromCart(cartId); // Llamar a la función para eliminar
+            }
+        });
+
+        document.getElementById('create-order').addEventListener('click', function () {
+            // Mostrar la alerta
+            alert('Pedido agregado');
+            // Redirigir a index.html
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>
